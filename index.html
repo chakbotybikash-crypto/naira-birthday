@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#190b24">
+<title>Happy Birthday Naira ❤️</title>
+
+<style>
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+body{
+ background:#190b24;
+ color:white;
+ font-family:Georgia,serif;
+ min-height:100vh;
+ overflow-x:hidden;
+ background-size:cover;
+ background-position:center;
+ background-attachment:fixed;
+}
+
+.screen{
+ display:none;
+ min-height:100vh;
+ align-items:center;
+ justify-content:center;
+ padding:25px 15px;
+ text-align:center;
+}
+
+.screen.active{
+ display:flex;
+}
+
+.card{
+ width:100%;
+ max-width:520px;
+ padding:25px 20px;
+ border:1px solid #ffffff55;
+ border-radius:25px;
+ background:rgba(25,10,35,.90);
+ box-shadow:0 0 35px #ff5e9c44;
+}
+
+h1{
+ color:#ffb6d9;
+ font-size:clamp(34px,9vw,52px);
+ text-shadow:0 0 20px #ff1493;
+ margin:15px 0;
+}
+
+h2{
+ color:#ffc6e0;
+ margin:12px;
+}
+
+p{
+ line-height:1.8;
+ font-size:17px;
+ margin:12px 0;
+}
+
+.teddy{
+ font-size:60px;
+ animation:bob 2s infinite;
+}
+
+button{
+ border:0;
+ border-radius:30px;
+ padding:14px 20px;
+ margin:10px 4px;
+ background:linear-gradient(45deg,#ff4f9a,#a64be8);
+ color:white;
+ font-size:16px;
+ font-weight:bold;
+ box-shadow:0 0 20px #ff149355;
+ cursor:pointer;
+}
+
+input[type="date"]{
+ width:100%;
+ padding:14px;
+ border-radius:12px;
+ margin:15px 0;
+ font-size:17px;
+}
+
+.letter{
+ text-align:left;
+ padding:20px;
+ border-radius:18px;
+ background:#ffffff12;
+ border:1px solid #ffffff30;
+}
+
+.photo{
+ width:85%;
+ max-width:270px;
+ height:330px;
+ object-fit:cover;
+ object-position:center 25%;
+ border-radius:20px;
+ border:3px solid #ffc5df;
+ box-shadow:0 0 25px #ff5e9c;
+ margin:15px auto;
+ display:none;
+}
+
+.setup{
+ margin-top:22px;
+ padding:18px 12px;
+ border:1px solid #ffffff55;
+ border-radius:18px;
+ background:#180b24;
+}
+
+.setup label{
+ display:block;
+ margin:15px 0 7px;
+ color:#ffc6e0;
+}
+
+.setup input[type="file"]{
+ width:100%;
+ padding:12px;
+ background:white;
+ color:#222;
+ border-radius:10px;
+ font-size:14px;
+}
+
+#saveStatus,
+#message,
+#musicStatus{
+ color:#ffc6df;
+ font-size:14px;
+}
+
+.heart{
+ position:fixed;
+ bottom:-40px;
+ pointer-events:none;
+ animation:float 7s linear forwards;
+ z-index:5;
+}
+
+@keyframes bob{
+ 50%{
+  transform:translateY(-10px) rotate(4deg);
+ }
+}
+
+@keyframes float{
+ to{
+  transform:translateY(-110vh) rotate(360deg);
+  opacity:0;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOCK PAGE -->
+
+<section class="screen active" id="lock">
+<div class="card">
+
+<div class="teddy">🧸💗</div>
+
+<h1>For Naira</h1>
+
+<p>
+A little birthday surprise is waiting for you.
+Enter any date of birth to unlock it. 🔐
+</p>
+
+<!-- MEDIA SETUP -->
+
+<div class="setup" id="mediaSetup">
+
+<h2>🎀 Prepare Your Surprise</h2>
+
+<label for="photoFile">Select Naira's Photo</label>
+<input type="file" id="photoFile" accept="image/*">
+
+<label for="audioFile">Select Birthday Music (MP3)</label>
+<input type="file" id="audioFile" accept="audio/mpeg,audio/*">
+
+<button onclick="saveMedia()" id="saveBtn">
+💾 Save Photo & Music
+</button>
+
+<p id="saveStatus">
+Select both files and press Save.
+</p>
+
+</div>
+
+<input type="date" id="dob">
+
+<button onclick="unlock()">
+🔓 Unlock My Surprise
+</button>
+
+<div id="message"></div>
+
+<p>Made with love by Law ♡</p>
+
+</div>
+</section>
+
+
+<!-- WELCOME PAGE -->
+
+<section class="screen" id="welcome">
+<div class="card">
+
+<div class="teddy">🧸🌷🎀</div>
+
+<h1>Happy Birthday<br>Naira! 🎂</h1>
+
+<p>
+Today is your special day.
+May your life always be filled with
+happiness, love and beautiful memories. ❤️
+</p>
+
+<button onclick="go('letter')">
+Open Your Letter 💌
+</button>
+
+</div>
+</section>
+
+
+<!-- LOVE LETTER -->
+
+<section class="screen" id="letter">
+<div class="card">
+
+<div class="teddy">💌</div>
+
+<h1>A Letter For You</h1>
+
+<div class="letter">
+
+<p>My dearest Naira, ❤️</p>
+
+<p>
+Happy Birthday! If I could make one wish for you today,
+it would be that life gives you a thousand reasons to smile,
+the courage to follow every dream, and the peace of knowing
+how special you are.
+</p>
+
+<p>
+You bring your own kind of light into my days.
+Even ordinary moments become precious when they are
+shared with someone who matters.
+I hope this little surprise reminds you that you are
+appreciated, cared for, and wished nothing but good things.
+</p>
+
+<p>
+May this new chapter be full of laughter, beautiful
+opportunities, warm memories and love.
+Keep being the wonderful person you are.
+</p>
+
+<p>
+Have the happiest birthday, Naira. 🌸
+</p>
+
+<h2>With lots of love,<br>Law ⚖️❤️</h2>
+
+</div>
+
+<button onclick="toggleMusic()" id="musicBtn">
+🎵 Play Birthday Music
+</button>
+
+<p id="musicStatus">
+Your birthday song is ready ❤️
+</p>
+
+<button onclick="go('photo')">
+Next Surprise ➜
+</button>
+
+</div>
+</section>
+
+
+<!-- PHOTO SURPRISE -->
+
+<section class="screen" id="photo">
+<div class="card">
+
+<div class="teddy">🧸💐🧸</div>
+
+<h1>A Little Memory</h1>
+
+<img id="nairaPhoto" class="photo" alt="Naira">
+
+<p>
+May your days be as lovely as flowers,
+your dreams as bright as stars,
+and your heart always find reasons to be happy. ✨
+</p>
+
+<button onclick="celebrate()">
+🎉 Celebrate!
+</button>
+
+<button onclick="go('final')">
+One Last Message ❤️
+</button>
+
+</div>
+</section>
+
+
+<!-- FINAL PAGE -->
+
+<section class="screen" id="final">
+<div class="card">
+
+<div class="teddy">🎂🧸❤️</div>
+
+<h1>Stay Happy, Naira!</h1>
+
+<p>
+I hope this birthday becomes one of those memories
+that makes you smile whenever you think about it.
+Keep shining, keep dreaming, and take care of that
+beautiful smile.
+</p>
+
+<h2>Forever Special ♡</h2>
+
+<h1>— Law ⚖️</h1>
+
+<button onclick="go('welcome')">
+↻ Replay Surprise
+</button>
+
+</div>
+</section>
+
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="birthdayMusic" loop></audio>
+
+
+<script>
+
+// ==================================
+// PAGE NAVIGATION
+// ==================================
+
+function go(id){
+
+ document.querySelectorAll(".screen").forEach(page=>{
+  page.classList.remove("active");
+ });
+
+ const page=document.getElementById(id);
+
+ if(page){
+  page.classList.add("active");
+ }
+
+ window.scrollTo(0,0);
+}
+
+
+// ==================================
+// INDEXED DB
+// ==================================
+
+let db=null;
+
+let photoURL=null;
+let audioURL=null;
+
+const request=indexedDB.open("NairaBirthdayDB",1);
+
+request.onupgradeneeded=function(event){
+
+ db=event.target.result;
+
+ if(!db.objectStoreNames.contains("media")){
+  db.createObjectStore("media");
+ }
+
+};
+
+
+request.onsuccess=function(event){
+
+ db=event.target.result;
+
+ // Load saved photo and music
+ loadSavedMedia();
+
+};
+
+
+request.onerror=function(){
+
+ document.getElementById("saveStatus").textContent=
+ "Storage unavailable. Please try another browser.";
+
+};
+
+
+// ==================================
+// SAVE PHOTO AND MUSIC
+// ==================================
+
+function saveMedia(){
+
+ const photoFile=document.getElementById("photoFile").files[0];
+
+ const audioFile=document.getElementById("audioFile").files[0];
+
+ const status=document.getElementById("saveStatus");
+
+ const saveBtn=document.getElementById("saveBtn");
+
+ if(!photoFile || !audioFile){
+
+  status.textContent="Please select BOTH photo and MP3 first.";
+
+  return;
+ }
+
+ if(!db){
+
+  status.textContent="Storage is loading. Please try again.";
+
+  return;
+ }
+
+ if(!photoFile.type.startsWith("image/")){
+
+  status.textContent="Please select a valid image.";
+
+  return;
+ }
+
+ if(!audioFile.type.startsWith("audio/")){
+
+  status.textContent="Please select a valid audio file.";
+
+  return;
+ }
+
+ saveBtn.disabled=true;
+
+ status.textContent="Saving your photo and music... ❤️";
+
+ const tx=db.transaction("media","readwrite");
+
+ const store=tx.objectStore("media");
+
+ store.put(photoFile,"photo");
+
+ store.put(audioFile,"music");
+
+
+ tx.oncomplete=function(){
+
+  status.textContent="❤️ Photo and music saved successfully!";
+
+  // Hide entire media setup section
+  document.getElementById("mediaSetup").style.display="none";
+
+  saveBtn.disabled=false;
+
+  // Load saved files
+  loadSavedMedia();
+
+ };
+
+
+ tx.onerror=function(){
+
+  status.textContent="Could not save files. Please try again.";
+
+  saveBtn.disabled=false;
+
+ };
+
+}
+
+
+// ==================================
+// LOAD SAVED PHOTO AND MUSIC
+// ==================================
+
+function loadSavedMedia(){
+
+ if(!db)return;
+
+ const tx=db.transaction("media","readonly");
+
+ const store=tx.objectStore("media");
+
+ let savedPhoto=null;
+
+ let savedMusic=null;
+
+
+ const photoRequest=store.get("photo");
+
+ const musicRequest=store.get("music");
+
+
+ photoRequest.onsuccess=function(event){
+
+  savedPhoto=event.target.result;
+
+  applySavedMedia();
+
+ };
+
+
+ musicRequest.onsuccess=function(event){
+
+  savedMusic=event.target.result;
+
+  applySavedMedia();
+
+ };
+
+
+ function applySavedMedia(){
+
+  // Wait until both database requests finish
+  if(savedPhoto===null || savedMusic===null){
+
+   if(savedPhoto===undefined || savedMusic===undefined){
+
+    // A missing file is not an error
+    return;
+   }
+
+  }
+
+  // If both files are saved, hide setup
+  if(savedPhoto && savedMusic){
+
+   document.getElementById("mediaSetup").style.display="none";
+
+  }else{
+
+   document.getElementById("mediaSetup").style.display="block";
+
+  }
+
+  // Apply photo
+  if(savedPhoto){
+
+   if(photoURL){
+
+    URL.revokeObjectURL(photoURL);
+
+   }
+
+   photoURL=URL.createObjectURL(savedPhoto);
+
+   const photo=document.getElementById("nairaPhoto");
+
+   photo.src=photoURL;
+
+   photo.style.display="block";
+
+   // Background photo
+   document.body.style.backgroundImage=
+   'linear-gradient(#17082088,#170820dd),url("'+photoURL+'")';
+
+   document.body.style.backgroundSize="cover";
+
+   document.body.style.backgroundPosition="center";
+
+  }
+
+
+  // Apply music
+  if(savedMusic){
+
+   if(audioURL){
+
+    URL.revokeObjectURL(audioURL);
+
+   }
+
+   audioURL=URL.createObjectURL(savedMusic);
+
+   const music=document.getElementById("birthdayMusic");
+
+   music.src=audioURL;
+
+   music.load();
+
+   document.getElementById("musicStatus").textContent=
+   "Your birthday song is saved and ready ❤️";
+
+  }
+
+ }
+
+}
+
+
+// ==================================
+// UNLOCK PAGE
+// ==================================
+
+function unlock(){
+
+ const dob=document.getElementById("dob").value;
+
+ const message=document.getElementById("message");
+
+ if(!dob){
+
+  message.textContent="Please select a date first 💗";
+
+  return;
+ }
+
+ message.textContent="";
+
+ go("welcome");
+
+}
+
+
+// ==================================
+// MUSIC PLAY / PAUSE
+// ==================================
+
+async function toggleMusic(){
+
+ const music=document.getElementById("birthdayMusic");
+
+ const button=document.getElementById("musicBtn");
+
+ const status=document.getElementById("musicStatus");
+
+
+ if(!music.src){
+
+  status.textContent="Please save your MP3 first.";
+
+  return;
+ }
+
+
+ if(music.paused){
+
+  try{
+
+   await music.play();
+
+   button.textContent="⏸ Pause Birthday Music";
+
+   status.textContent="Now Playing Your Birthday Song ❤️";
+
+  }catch(error){
+
+   status.textContent="Tap Play again to start music.";
+
+  }
+
+ }else{
+
+  music.pause();
+
+  button.textContent="🎵 Play Birthday Music";
+
+  status.textContent="Music Paused";
+
+ }
+
+}
+
+
+// ==================================
+// FLOATING HEARTS
+// ==================================
+
+function createHeart(){
+
+ const heart=document.createElement("div");
+
+ heart.className="heart";
+
+ heart.innerHTML=
+ ["❤️","💕","💖","✨","🌸","🧸"][
+ Math.floor(Math.random()*6)
+ ];
+
+ heart.style.left=Math.random()*100+"vw";
+
+ heart.style.fontSize=(18+Math.random()*22)+"px";
+
+ heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+ document.body.appendChild(heart);
+
+ setTimeout(()=>heart.remove(),10000);
+
+}
+
+setInterval(createHeart,600);
+
+
+// ==================================
+// CELEBRATION
+// ==================================
+
+function celebrate(){
+
+ for(let i=0;i<75;i++){
+
+  setTimeout(()=>createHeart(),i*35);
+
+ }
+
+}
+
+</script>
+
+</body>
+</html>
